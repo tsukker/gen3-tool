@@ -3,15 +3,14 @@
 const buttonEncodeEvent = function () {
   const textDecoded = document
     .getElementById("inputDecoded")
-    .value.replace(" ", "");
+    .value.replaceAll(" ", "");
   const result = [];
   for (let i = 0; i < textDecoded.length; ++i) {
     const nextChar = encodeTable[textDecoded.charAt(i)];
     if (nextChar) {
       result.push(nextChar);
     } else {
-      console.warn("encode error, abort.");
-      break;
+      result.push("XX");
     }
   }
   document.getElementById("inputEncoded").value = result.join(" ");
