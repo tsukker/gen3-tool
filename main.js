@@ -22,8 +22,10 @@ const buttonDecodeEvent = function () {
     .value.replace(/\s+/g, "");
   const result = [];
   for (let i = 0; i < textEncoded.length - 1; i += 2) {
-    const nextChar =
-      decodeTable[textEncoded.charAt(i) + textEncoded.charAt(i + 1)];
+    const key = (
+      textEncoded.charAt(i) + textEncoded.charAt(i + 1)
+    ).toUpperCase();
+    const nextChar = decodeTable[key];
     if (nextChar) {
       result.push(nextChar);
     } else {
